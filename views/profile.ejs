@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="/images/Logo1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CODEBASE</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    
+  
+
+  </head>
+  <body>
+    <%- include('loader') %>
+    <%- include('header') %>
+    <div class="container">
+      <div class="box1">
+        <!-- ---------------------->
+        <div class="profile">
+          <div class="p">
+            <div class="profile_pic"></div>
+            <div class="profile_name">Username</div>
+          </div>
+          <button><a href="/leaderboard">Go to LeaderBoard</a></button>
+        </div>
+        <!-------------------------->
+        <div class="skills">
+          <div>
+            <h1>Skills</h1>
+          </div>
+          <div class="skill">
+            <p>dynamic programming <span id="skillques">x3</span></p>
+            <p>Binary Search <span id="skillques">x6</span></p>
+            <p>Recursion <span id="skillques">x10</span></p>
+            <p>HashTable <span id="skillques">x5</span></p>
+            <p>Two Pointer <span id="skillques">x9</span></p>
+            <p>Array <span id="skillques">x20</span></p>
+            <p>Strings <span id="skillques">x15</span></p>
+            <p>Sorting <span id="skillques">x10</span></p>
+            <p>Sorting <span id="skillques">x10</span></p>
+            <p>Sorting <span id="skillques">x10</span></p>
+            <p>Sorting <span id="skillques">x10</span></p>
+            <p>Sorting <span id="skillques">x10</span></p>
+            <p>Sorting <span id="skillques">x10</span></p>
+          </div>
+        </div>
+
+        <!-- -------------------------------- -->
+        <div class="tube">
+          <div class="progressBox">
+            <div id="circle">solved</div>
+            <div id="circleBar"></div>
+          </div>
+
+          <!-- ------------ -->
+          <div class="barBox">
+            <!-- ---------Easy----------- -->
+            <div class="quesBox">
+              <div class="data">
+                <span class="questype">Easy</span>
+
+                <div class="quescount">
+                  <span id="easysolved"></span>
+                  /
+                  <span id="easyTotal"></span>
+                </div>
+              </div>
+
+              <div class="bar" id="easybar"><div id="easydone"></div></div>
+            </div>
+
+            <!-- ---------Medium----------- -->
+            <div class="quesBox">
+              <div class="data">
+                <span class="questype">Medium</span>
+
+                <div class="quescount">
+                  <span id="mediumsolved"></span>
+                  /
+                  <span id="mediumTotal"></span>
+                </div>
+              </div>
+
+              <div class="bar" id="mediumbar"><div id="mediumdone"></div></div>
+            </div>
+
+            <!-- ---------Hard----------- -->
+            <div class="quesBox">
+              <div class="data">
+                <span class="questype">Hard</span>
+                <div class="quescount">
+                  <span id="hardsolved"></span>
+                  /
+                  <span id="hardTotal"></span>
+                </div>
+              </div>
+              <div class="bar" id="hardbar">
+                <div id="harddone"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box2">
+        
+        
+        
+        <div class="badges">
+          <div class="cardBox">
+              <div id="Badge1" class="badgeCard">
+                <img  src="./badges/Badge1.png" alt="" />
+                <h3>Explorer</h3>
+              </div>
+              <div id="Badge2" class="badgeCard">
+                <img src="./badges/Badge2.png" alt="" />
+                <h3>Rider</h3>
+              </div>
+              <div id="Badge3" class="badgeCard">
+                <img src="./badges/Badge3.png" alt="" />
+                <h3>Hunter</h3>
+              </div>
+              <div id="Badge4" class="badgeCard">
+                <img src="./badges/Badge4.png" alt="" />
+                <h3>King</h3>
+              </div>
+              <div id="Badge5" class="badgeCard">
+                <img src="./badges/Badge5.png" alt="" />
+                <h3>Emperor</h3>
+              </div>
+            </div>
+          </div>
+          <div class="lineGraph">
+            <canvas id="myChart" style="width:70%;max-width:95%;max-height: 95%;"></canvas>
+          </div>
+
+          
+        <!-- </div> --> 
+        <div class="recent">
+          <div class="rechead">
+            <h1>Recent Questions</h1>
+            <div class="toggle">
+              <button id="prevques"><</button>
+              <button id="nextques" class="">></button>
+            </div>
+          </div>
+          <div id="questionArea"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/requests.js"></script>
+  </body>
+</html>

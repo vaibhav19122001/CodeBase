@@ -1,0 +1,127 @@
+body{
+    margin:0;
+    box-sizing:border-box;
+    padding:0;
+    overflow-x:hidden;
+    font-family: 'Fredoka', sans-serif;
+    background-image:url('../images/background.svg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}#topHeader{
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns:repeat(2,1fr);
+    background-color:transparent;
+    width:100vw;
+    min-height:55px;
+    margin-bottom:1rem;
+    height:auto;
+}#topHeader #photo1{
+    width:200px;
+    margin-left:20px;
+}#mainArea{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    bottom:0px;
+}main{
+    bottom:0px;
+    width:90vw;
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns:repeat(2,1fr);
+}#MainCard{
+    display:flex;
+    bottom:0px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}#ActualCard{
+    bottom:0;
+    width:60%;
+    height:500px;
+    border:2px solid black;  
+    border-radius:1rem;
+}#Image{
+    background-image:url('../images/entry.svg');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}#Render{
+    display:grid;
+    height:inherit;
+    align-items:center;
+    justify-content:center;
+}input{
+    display:block;
+    margin:auto;
+    margin-bottom:40px;
+    width:300px;
+    height:30px;
+    border:none;
+    outline:none;
+    border-bottom:1px solid black;
+    font-size:20px;
+    background-color:transparent;
+}button{
+    display:block;
+    margin:auto;
+    outline:none;
+    border:none;
+    width:300px;
+    height:35px;
+    background-color:#f1c40f;
+    font-size:20px;
+    border-radius:1rem;
+    cursor:pointer;
+    transition:all 0.5s ease-in-out;
+}button:hover{
+    box-shadow:3px 3px 3px gray;
+    background-image:linear-gradient( #f0b27a,#f1c40f);
+}a{
+    color:#2980b9;
+    text-decoration:none;
+}#footer{
+    margin-top:80px;
+    width:100vw;
+    text-align:center;
+    background-color:#f1c40f;
+}#Ending{
+    padding:10px 0px 10px 0px;
+}#Ending h1{
+    font-size:40px;
+    margin:0px;
+    padding:0px;
+}#UserProfilePhoto img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}@media(max-width:1200px){
+    input{
+        width:250px;
+    }button{
+        width:250px;
+    }
+}@media(max-width:1000px){
+    input{
+        width:200px;
+    }button{
+        width:200px;
+    }
+}@media(max-width:900px){
+    #Image{
+        display:none;
+    }main{
+        display:flex;
+        width:100%;
+        justify-content:center;
+        align-items:center;
+    }#ActualCard{
+        width:300px;
+    }
+}@media(max-width:300px){
+    #ActualCard{
+        width:250px;
+    }
+}

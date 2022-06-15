@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QuestionSet</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/images/Logo1.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/index.css"/>
+    </head>
+    <body>
+        <%- include('loader') %>
+        <%- include('header') %>
+        <div>
+            <main>
+                <div>
+                    <section id="Content">
+                        <% for(let i=0 ; i < questions.length ; i++) {%>
+                            <a href="/topic?name=<%= questions[i].request %>" style="cursor:pointer;"><div class="Cards">
+                                <div>
+                                    <img src="/images/<%= questions[i].request %>.svg"/>
+                                </div>
+                                <div>
+                                    <p><%= questions[i].topic %></p>
+                                </div>
+                            </div></a>
+                        <% } %>
+                    </section>
+                </div>
+            </main>
+        </div>
+        <script src="/js/requests.js"></script>
+    </body>
+</html>

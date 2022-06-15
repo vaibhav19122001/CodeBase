@@ -1,0 +1,27 @@
+@keyframes change{
+    from{
+        opacity:1;
+    }to{
+        opacity:0.5;
+    }
+}#loadingImage{
+    background-color:white;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+    position:fixed;
+}#loadingImageImg{
+    background-image:url('../images/Logo1.png');
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:105px;
+    height:105px;
+    width:105px;
+    animation-name: change;
+    animation-duration:1s;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count:infinite;
+}

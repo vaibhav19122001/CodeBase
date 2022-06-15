@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= topic %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/images/Logo1.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/for.css"/>
+    </head>
+    <body>
+        <%- include('loader') %>
+        <%- include('header') %>
+        <main>
+            <section id="sec1">
+                <h1><%=topic%></h1>
+            </section>
+            <nav id="Type1">
+                <%for(let i=0;i<buttons.length;i++){%>
+                    <button style="cursor:pointer" onclick="getContent('<%= buttons[i] %>','<%= request %>')"><b><%=buttons[i]%></b></button>
+                <%}%>
+            </nav>
+            <nav id="Type2">
+                <%for(let i=0;i<smallbuttons.length;i++){%>
+                    <button style="cursor:pointer" onclick="getContent('<%= buttons[i] %>','<%= request %>')"><i class="material-icons"><%=smallbuttons[i]%></i></button>
+                <%}%>
+            </nav>
+            <div>
+                <section id="Content">
+                    <%- include(page) %>
+                </section>
+            </div>
+        </main>
+    </body>
+    <script src="/js/requests.js"></script>
+</html>

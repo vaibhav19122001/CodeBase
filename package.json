@@ -1,0 +1,22 @@
+{
+  "name": "CPS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "codeforces-api": "^1.0.3",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express-session": "^1.17.3",
+    "express.js": "^1.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
