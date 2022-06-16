@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reveal Website Elements On Scroll</title>
+    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="nav">  
+      <img id = "logo" alt="code" src="logo.jpeg">    
+      <ul class="main-menu">
+          <li><a href="#s1">About</a></li>
+          <li><a href="#s2">Team</a></li>
+          <li><a href="#s3">Contact</a></li>
+      </ul>
+    </div>
+
+    <section class="codebase" id="s1">
+      <h1></h1>
+    </section>
+
+    <!-- team -->
+
+    <section id="s2">
+      <div class="container reveal" >
+        <div class="section-title">
+            <h1>Our Team</h1>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="ashish.jpeg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Ashish Kumar Santu</h2>
+                        <h3>Backend</h3>
+                        <p>fjoscifjoie ioewfoi ioercjo icmiorafj irejcfoirj ewifjx</p>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-github"></i></a>
+                    </div>
+                 </div>
+             </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="img/team-2.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Manoj Kumar</h2>
+                        <h3>Backend</h3>
+                        <p>---</p>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Rashicka</h2>
+                        <h3>Frontend Developer</h3>
+                        <p>jcnfakjre jev kenv ejenfvjc vfnv</p>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="img/team-4.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Bharti</h2>
+                        <h3>Frontend Developer</h3>
+                        <p>---</p>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section id="s3">
+      <div class="container reveal">
+        <div class="contact-in">
+          <div class="contact-map">
+            <img src="contact.webp" alt="Team Image">
+          </div>
+          <div class="contact-form">
+              <h2>Contact Us</h2>
+              <form>
+                <input type="text" placeholder="Name" class="contact-form-txt"/>
+                <input type="text" placeholder="Email" class="contact-form-txt"/>
+                <textarea placeholder="Message" cols="30" class="contact-form-textarea"></textarea><br>
+                <input type="submit" name="Submit" class="contact-form-btn"/>
+              </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="fixed-footer">
+        <div class="container">Copyright &copy; 2022 Codebase</div>        
+    </div>
+
+    <script type="text/javascript">
+    window.addEventListener('scroll', reveal);
+
+    function reveal(){
+      var reveals = document.querySelectorAll('.reveal');
+
+      for(var i = 0; i < reveals.length; i++){
+
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint){
+          reveals[i].classList.add('active');
+        }
+        else{
+          reveals[i].classList.remove('active');
+        }
+      }
+    }
+    </script>
+
+  </body>
+</html>
