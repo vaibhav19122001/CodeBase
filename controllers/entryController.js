@@ -152,6 +152,8 @@ const handlePost =async (req,res)=>{
                     req.session.otp=otp;
                     console.log("stats");
                     console.log(req.session);
+                    req.session.limit=0;
+                    req.session.handle=true;
                     return res.status(200).redirect("/otp");     
                 }else{
                     //warning msg to user for try again
@@ -192,6 +194,8 @@ if(req.session.signUp!==undefined){
                 req.session.is_logged_in = true;
                 req.session.signUp=false;
                 req.session.cookie.maxAge=24*60*60*1000;
+                req.session.handle=undefined;
+                req.session.limit=null;
                    return res.status(200).redirect('/home');
                }else{
                    //warn user somthing went wrong please try again!!
@@ -245,6 +249,10 @@ const otpRePost = (req,res)=>{
     }
   }
   else{
+    if(req.session.handle!==undefined){
+        req.session.destroy();
+        res.redirect('/signup');
+    }else
     return res.redirect('/forgot');
   }
 }
