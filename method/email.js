@@ -1,4 +1,5 @@
-const mailjet = require ('node-mailjet').apiConnect('6f316ccfef3ed6ee1dc8d74a70426195', 'bfcc5fc8124278021d56eb33280e60b1')
+require('dotenv').config();
+const mailjet = require ('node-mailjet').apiConnect(`${process.env.emailKey}`, `${process.env.emailSecKey}`)
 module.exports=async (userInfo,callback) => {
     console.log("mail");
     //console.log(userInfo);
