@@ -8,13 +8,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <form>
+        <form method="POST" action="/otp">
             <h1>Enter OTP</h1>
-            <input type="number" required placeholder="OTP" name="otp">
+            <input type="text" required placeholder="OTP" name="otp">
             <button type="submit">Confirm</button>
         </form>
         <div>
-            <a>resend OTP</a>
+            <form method="POST" action="/otpRe">
+                <button type="submit"><a>resend OTP</a></button>
+            </form>
         </div>
     </body>
 </html>

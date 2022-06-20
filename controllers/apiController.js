@@ -1,9 +1,11 @@
 require('dotenv').config();
+
 const {QuestionSet} = require('../styles/js/questions');
 const {Button} = require('../styles/js/buttons');
 const {Types} = require('../styles/js/types');
 const {getInfo} = require('../styles/js/apiCall');
-const getUser = async(req,res)=>{
+
+const getUserGet = async(req,res)=>{
     try{
         const data = await getInfo(process.env.CFKEY,process.env.CFSEC,req.query.name);
         return res.status(200).send(`<img src=${data[0].titlePhoto}>`);
@@ -18,22 +20,8 @@ const getQuestions = (Name,type) =>{
         question.push({name:questionSet[keys].name,link:questionSet[keys].link});
     }return question;
 };
-const login = (req,res)=>{
-    return res.status(200).render('enter',{
-        page : 'login'
-    });
-}
-const signup = (req,res)=>{
-    return res.status(200).render('enter',{
-        page : 'signup'
-    });
-}
-const forgot = (req,res)=>{
-    return res.status(200).render('enter',{
-        page : 'forgot'
-    });
-}
-const topic = (req,res)=>{
+
+const topicGet = (req,res)=>{
     const button = Button[req.query.name] === undefined ? ['Fundamentals']:Button[req.query.name];
     let firstType = button[0];
     firstType = firstType.toLowerCase();
@@ -51,7 +39,8 @@ const topic = (req,res)=>{
         smallbuttons : smallbutton
     });
 }
-const home = (req,res)=>{
+const homeGet = (req,res)=>{
+    console.log(req.session);
     const topics = [];
     for(let keys of Object.keys(QuestionSet)){
         topics.push({topic : QuestionSet[keys].topic,request : keys});
@@ -59,18 +48,14 @@ const home = (req,res)=>{
         questions : topics
     });
 }
-const leaderboard = (req,res)=>{
+const leaderboardGet = (req,res)=>{
     return res.status(200).render('leaderboard');
 }
-const profile = (req,res)=>{
+const profileGet = (req,res)=>{
     return res.status(200).render('profile');
 }
-const handle = (req,res)=>{
-    return res.status(200).render('enter',{
-        page : 'handle'
-    });
-}
-const changeContent = (req,res)=>{
+
+const changeContentGet = (req,res)=>{
     const name = req.query.name;
     const topic = req.query.topic;
     const question = getQuestions(topic,name);
@@ -79,4 +64,12 @@ const changeContent = (req,res)=>{
         symbol : Types[name]
     });
 }
-module.exports = {login,signup,forgot,topic,home,changeContent,leaderboard,profile,handle,getUser};
+
+module.exports = {
+    topicGet,
+    homeGet,
+    changeContentGet,
+    leaderboardGet,
+    profileGet,
+    getUserGet
+};
