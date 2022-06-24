@@ -327,13 +327,6 @@ img{
 }
 
 .contact-form-textarea{
-  /* width: 80%;
-  flex: 50%;
-  border: 1px solid black;
-  outline: none;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px; */
   height: 154px;
   border: none;
   -webkit-appearance: none;
@@ -352,6 +345,13 @@ img{
   text-transform: uppercase;
   padding: 5px;
   cursor: pointer;
+  background-color: dodgerblue;
+  width: 200px;
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  font-size: 15px;
 }
 
 
