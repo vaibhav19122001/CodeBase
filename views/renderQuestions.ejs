@@ -1,6 +1,6 @@
 <%for(let i=0;i<questions.length;i++){%>
     <a class="Link" onmouseenter="Hover1('<%= i %>')" onmouseleave="Hover2('<%= i %>')" target="blank" href="<%= questions[i].link %>">
-        <div class="Cards Unsolved <%= i %>">
+        <div class="Cards <%= i %>" style="color:<%=questions[i].colorProperty['color']%>;background-image:<%=questions[i].colorProperty['background-image']%>">
             <div class="symbol">
                 <i class="material-icons Unsolved"><%= symbol %></i>
             </div>

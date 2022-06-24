@@ -20,7 +20,8 @@
     "express-session": "^1.17.3",
     "express.js": "^1.0.0",
     "mongoose": "^6.4.0",
-    "node-mailjet": "^4.0.1"
+    "node-mailjet": "^4.0.1",
+    "redis": "^4.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

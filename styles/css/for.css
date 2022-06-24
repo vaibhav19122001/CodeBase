@@ -67,9 +67,6 @@ body{
     transition:all 0.5s ease-in-out;
 }#Content i{
     font-size: 80px;
-}.Unsolved{
-    background-image:linear-gradient(#D6DBDF,#E5E8E8);
-    color:#566573;
 }.Link{
     overflow-wrap:break-word;
     width:125px;

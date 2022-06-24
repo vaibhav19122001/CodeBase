@@ -1,10 +1,13 @@
 require('dotenv').config();
-
+const redis = require('redis');
+const REDIS_PORT = process.env.PORT || 6379;
 const {QuestionSet} = require('../styles/js/questions');
 const {Button} = require('../styles/js/buttons');
 const {Types} = require('../styles/js/types');
-const {getInfo} = require('../styles/js/apiCall');
-
+const {getInfo,getQuestions} = require('../styles/js/apiCall');
+const {Colors} = require('../styles/js/colors');
+const client = redis.createClient(REDIS_PORT);
+client.connect();
 const getUserGet = async(req,res)=>{
     try{
         const data = await getInfo(process.env.CFKEY,process.env.CFSEC,req.query.name);
@@ -13,19 +16,36 @@ const getUserGet = async(req,res)=>{
         return res.status(200).send('<img src="/images/notfound.png"/>');
     }
 }
-const getQuestions = (Name,type) =>{
-    const questionSet = QuestionSet[Name][type];
-    const question = [];
-    for(let keys of Object.keys(questionSet)){
-        question.push({name:questionSet[keys].name,link:questionSet[keys].link});
-    }return question;
+const getQuestionsFunc = async(Name,type) =>{
+    try{
+        let Done;
+        if(await client.get("data")){
+            const storedCache = await client.get("data");
+            Done = JSON.parse(storedCache);
+        }else{
+            Done = await getQuestions(process.env.CFKEY,process.env.CFSEC,'Errichto')
+            client.set("data",JSON.stringify(Done));
+        }const questionSet = QuestionSet[Name][type];
+        const question = [];
+        for(let keys of Object.keys(questionSet)){
+            const questionName = questionSet[keys].name;
+            const questionLink = questionSet[keys].link;
+            if(Done[keys]){
+                question.push({name:questionName,link:questionLink,colorProperty:Colors[type]});
+            }else{
+                question.push({name:questionName,link:questionLink,colorProperty:Colors['unsolved']});
+            }
+        }return question;
+    }catch(err){
+        console.log(err);
+    }
 };
 
-const topicGet = (req,res)=>{
+const topicGet = async(req,res)=>{
     const button = Button[req.query.name] === undefined ? ['Fundamentals']:Button[req.query.name];
     let firstType = button[0];
     firstType = firstType.toLowerCase();
-    const question = getQuestions(req.query.name,firstType);
+    const question = await getQuestionsFunc(req.query.name,firstType);
     const smallbutton = [];
     for(let keys of button){
         smallbutton.push(Types[keys.toLowerCase()]);
@@ -55,10 +75,10 @@ const profileGet = (req,res)=>{
     return res.status(200).render('profile');
 }
 
-const changeContentGet = (req,res)=>{
+const changeContentGet = async(req,res)=>{
     const name = req.query.name;
     const topic = req.query.topic;
-    const question = getQuestions(topic,name);
+    const question = await getQuestionsFunc(topic,name);
     return res.status(200).render('renderQuestions',{
         questions : question,
         symbol : Types[name]

@@ -391,12 +391,12 @@ margin-bottom: 0;
 }
 
 /* header */
-.nav{
+/*.nav{
   height: 80px;
   width: 100%;
   background-color: #FFFF66;
   color: rgb(8, 6, 6);
-  /* position: fixed; */
+  /* position: fixed;
   top: 0;
   align-items: center;
   justify-content: space-between;
@@ -432,4 +432,4 @@ margin-bottom: 0;
 .nav ul.main-menu{
   flex: 1;
   margin-left: 20px;
-}
+}*/
