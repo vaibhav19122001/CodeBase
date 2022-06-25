@@ -327,6 +327,13 @@ img{
 }
 
 .contact-form-textarea{
+  /* width: 80%;
+  flex: 50%;
+  border: 1px solid black;
+  outline: none;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px; */
   height: 154px;
   border: none;
   -webkit-appearance: none;
@@ -411,12 +418,12 @@ img{
 }
 
 /* header */
-/*.nav{
+.nav{
   height: 80px;
   width: 100%;
   background-color: #FFFF66;
   color: rgb(8, 6, 6);
-  /* position: fixed;
+  /* position: fixed; */
   top: 0;
   align-items: center;
   justify-content: space-between;
@@ -456,4 +463,4 @@ img{
 .nav ul.main-menu{
   flex: 1;
   margin-left: 20px;
-}*/
+}
