@@ -9,13 +9,15 @@ const {
     handleGet,
     otpGet,
     changePassGet,
+    aboutUsGet,
     loginPost,
     signupPost,
     forgotPost,
     handlePost,
     otpPost,
     changePassPost,
-    otpRePost
+    otpRePost,
+    aboutUsPost
 } = require('../controllers/entryController');
 
 const {
@@ -41,5 +43,6 @@ router.get('/leaderboard',checkAuth,leaderboardGet);
 router.get('/profile',checkAuth,profileGet);
 router.get('/changeContent',checkAuth,changeContentGet);
 router.get('/getUser',getUserGet);
+router.route('/aboutUs').get(aboutUsGet).post(aboutUsPost);
 
 module.exports = router;

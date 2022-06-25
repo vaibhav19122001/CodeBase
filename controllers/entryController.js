@@ -308,6 +308,23 @@ const changePassPost = (req,res)=>{
     }else
         res.redirect('/forgot');
 }
+const aboutUsGet = (req,res)=>{
+        return res.status(200).render('aboutus');
+    
+}
+const aboutUsPost = (req,res)=>{
+    const contact={name:req.body.name,email:req.body.email,text:req.body.text};
+    const send={
+        name:"code4",
+        email:"code4cosmoscb@gmail.com",
+        text:`hi am ${contact.name} my email id: ${contact.email} and i want to say that ${contact.text}`
+    }
+    email(send,(data)=>{
+        if(data){
+            return res.status(200).render('aboutus');
+        }
+    });
+}
 module.exports = {
     loginGet,
     signupGet,
@@ -315,11 +332,13 @@ module.exports = {
     handleGet,
     otpGet,
     changePassGet,
+    aboutUsGet,
     loginPost,
     signupPost,
     forgotPost,
     handlePost,
     otpPost,
     changePassPost,
-    otpRePost
+    otpRePost,
+    aboutUsPost
 };
