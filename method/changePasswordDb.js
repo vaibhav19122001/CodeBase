@@ -4,8 +4,8 @@ var bcrypt = require('bcryptjs');
 module.exports =async function( user, callback )
 {
     try{
-        console.log("passChange method");
-        console.log(user);
+        //console.log("passChange method");
+        //console.log(user);
         const salt=await bcrypt.genSalt(10);
         const secPassword=await bcrypt.hash(user.password,salt);
         const result=await userModel.updateOne({email:user.email},{

@@ -60,7 +60,7 @@ const topicGet = async(req,res)=>{
     });
 }
 const homeGet = (req,res)=>{
-    console.log(req.session);
+    //console.log(req.session);
     const topics = [];
     for(let keys of Object.keys(QuestionSet)){
         topics.push({topic : QuestionSet[keys].topic,request : keys});
