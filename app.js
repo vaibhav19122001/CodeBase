@@ -18,13 +18,6 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true,
 }))
-  /*app.use(cookieSession({
-    name: 'session',
-    keys: [0],
-  
-    // Cookie Options
-    maxAge: 5 * 60 * 1000 // 5 min
-  }))*/
 //app.use
 app.use('/',routes);
 app.listen(PORT,()=>{
