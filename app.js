@@ -25,6 +25,7 @@ app.use(session({
     // Cookie Options
     maxAge: 5 * 60 * 1000 // 5 min
   }))*/
+//app.use
 app.use('/',routes);
 app.listen(PORT,()=>{
     console.log(`http://localhost:${PORT}`);
